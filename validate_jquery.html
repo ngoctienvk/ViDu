@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+
+
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+<style>
+body {
+    background-color: #d0e4fe;
+}
+input.error { border: 1px solid red; }
+label {
+     margin-left: 20px;
+     color: red;
+}
+h1 {
+    color: orange;
+    
+}
+
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+</style>
+<p>Text Javascript.</p>
+<form id="myform">
+<h >Ho & Ten: </h>
+<input style="margin-left: 18px;" type="text" name="Ho" id="Ho" value=""></input>
+<br><br>
+<h>Dia Chi: </h>
+<input style="margin-left: 32px;" type="text" name="DiaChi" id="DiaChi" value=""></input>
+<br><br>
+<h>SDT: </h>
+<input style="margin-left: 52px;" type="text" name="SDT" id="SDT" value=""></input>
+<br><br>
+<h>Email:</h>
+<input style="margin-left: 44px;" type="text" name="Email" id="Email" value=""></input>
+<br><br>
+<input style="color: red;" type="submit" name="submit" value="Register"></input>
+</form>
+
+<script>
+
+
+$.validator.setDefaults({
+
+		submitHandler: function() {
+		alert("Dang ky thanh cong" +"\n"+"Thong tin cua ban la:" + "\n"+ $("#Ho").val()+"\n"+$("#DiaChi").val()+"\n"+$("#SDT").val()+"\n"+$("#Email").val());
+		}
+	});
+
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#myform" ).validate({
+  rules: {
+    SDT: {
+      required: true,
+      number: true,
+      minlength: 9,
+      maxlength: 11   
+    },
+   
+    Email: {
+      required: true,
+      email: true
+     
+    }
+
+  }
+});
+
+</script>
+
+</body>
+</html>
